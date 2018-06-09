@@ -2,6 +2,8 @@
 # Krishna Bhattarai
 # Perl script for raspberry pi
 
+use strict;
+use warnings;
 $name         = `tvservice -n | awk -F'=' '{print \$2}'`;
 $status       = `tvservice -s`;
 

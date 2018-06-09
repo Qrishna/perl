@@ -2,7 +2,6 @@
 # Krishna Bhattarai
 # Perl script for raspberry pi
 
-$orientation  = `cat s3-ingestor.json | python -m json.tool | grep \"etl/images/orientation= | head -1 | sed 's/.*orientation=//; s/\/.*//'`;
 $name         = `tvservice -n | awk -F'=' '{print \$2}'`;
 $status       = `tvservice -s`;
 
@@ -13,6 +12,7 @@ $ip_wlan0 = `ip route | grep "wlan0  proto" | awk '{print \$9}'`;
 $memory = `vcgencmd get_mem arm && vcgencmd get_mem gpu`;
 $arm    = `vcgencmd get_mem arm`;
 $gpu    = `vcgencmd get_mem gpu`;
+$orientation  = `cat s3-ingestor.json | python -m json.tool | grep \"etl/images/orientation= | head -1 | sed 's/.*orientation=//; s/\/.*//'`;
 
 print($orientation);
 print($name);
